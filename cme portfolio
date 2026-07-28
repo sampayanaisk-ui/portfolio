@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jessie Mae G. Garnoza — Bookkeeping & Administrative Support Specialist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --white:#ffffff;
+    --navy:#10243e;
+    --navy-soft:#1c3556;
+    --blue:#2c6fbb;
+    --blue-deep:#1f558f;
+    --blue-tint:#eaf2fb;
+    --blue-tint-2:#f4f8fd;
+    --slate:#5b6b7c;
+    --line:#d8e3ee;
+    --success:#2f8f5b;
+    --radius:14px;
+    --maxw:1120px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--white);
+    color:var(--navy);
+    font-family:'Inter',sans-serif;
+    -webkit-font-smoothing:antialiased;
+    line-height:1.6;
+  }
+  h1,h2,h3,h4{font-family:'Fraunces',serif;color:var(--navy);margin:0;letter-spacing:-0.01em;}
+  .mono{font-family:'IBM Plex Mono',monospace;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px;}
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  ::selection{background:var(--blue);color:#fff;}
+
+  /* focus visibility */
+  a:focus-visible, button:focus-visible{outline:2px solid var(--blue); outline-offset:3px;}
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important;}
+  }
+
+  /* ---------- NAV ---------- */
+  header.site{
+    position:sticky; top:0; z-index:50;
+    background:rgba(255,255,255,0.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  nav.wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    height:72px;
+  }
+  .brand{font-family:'Fraunces',serif; font-weight:600; font-size:19px; color:var(--navy);}
+  .brand span{color:var(--blue);}
+  .navlinks{display:flex; gap:30px; align-items:center;}
+  .navlinks a{
+    font-size:14.5px; font-weight:500; color:var(--slate);
+    position:relative; padding:6px 0;
+  }
+  .navlinks a::after{
+    content:""; position:absolute; left:0; bottom:0; height:2px; width:0;
+    background:var(--blue); transition:width .25s ease;
+  }
+  .navlinks a:hover::after{width:100%;}
+  .navlinks a:hover{color:var(--navy);}
+  .nav-cta{
+    background:var(--navy); color:#fff !important; padding:10px 20px;
+    border-radius:999px; font-size:14px; font-weight:600;
+  }
+  .nav-cta:hover{background:var(--blue-deep);}
+  .navlinks a.nav-cta::after{display:none;}
+  .burger{display:none; background:none; border:none; cursor:pointer; padding:8px;}
+  .burger span{display:block; width:22px; height:2px; background:var(--navy); margin:5px 0;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative; overflow:hidden;
+    background:
+      repeating-linear-gradient(to bottom, transparent 0, transparent 39px, var(--line) 40px),
+      var(--white);
+    padding:96px 0 80px;
+  }
+  .hero::before{
+    content:""; position:absolute; top:0; right:-140px; width:520px; height:520px;
+    background:radial-gradient(circle at center, var(--blue-tint) 0%, transparent 70%);
+    z-index:0;
+  }
+  .hero .wrap{position:relative; z-index:1; display:grid; grid-template-columns:1.15fr 0.85fr; gap:56px; align-items:center;}
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:'IBM Plex Mono',monospace; font-size:12.5px; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--blue-deep); background:var(--blue-tint); border:1px solid var(--line);
+    padding:6px 14px; border-radius:999px; margin-bottom:22px;
+  }
+  .eyebrow::before{content:"●"; color:var(--success); font-size:9px;}
+  .hero h1{font-size:46px; line-height:1.12; font-weight:600; max-width:11.5ch;}
+  .hero h1 em{font-style:normal; color:var(--blue);}
+  .hero p.lead{font-size:17px; color:var(--slate); max-width:46ch; margin-top:20px;}
+  .hero .cta-row{display:flex; gap:14px; align-items:center; margin-top:32px; flex-wrap:wrap;}
+  .btn-primary{
+    background:var(--navy); color:#fff; padding:15px 28px; border-radius:10px;
+    font-weight:600; font-size:15px; display:inline-flex; align-items:center; gap:10px;
+    transition:transform .18s ease, background .18s ease; border:none; cursor:pointer;
+  }
+  .btn-primary:hover{background:var(--blue-deep); transform:translateY(-2px);}
+  .btn-secondary{
+    color:var(--navy); font-weight:600; font-size:15px; padding:15px 6px;
+    border-bottom:2px solid var(--line);
+  }
+  .btn-secondary:hover{border-color:var(--blue);}
+
+  /* Ledger balance widget — signature element */
+  .ledger-card{
+    background:#fff; border:1px solid var(--line); border-radius:var(--radius);
+    box-shadow:0 24px 48px -20px rgba(16,36,62,0.18);
+    padding:26px 26px 22px;
+  }
+  .ledger-card .lc-head{display:flex; justify-content:space-between; align-items:baseline; margin-bottom:18px;}
+  .ledger-card .lc-head span{font-size:13px; color:var(--slate); font-family:'IBM Plex Mono',monospace;}
+  .lc-cols{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+  .lc-col{border:1px dashed var(--line); border-radius:10px; padding:16px;}
+  .lc-col h4{font-size:12px; text-transform:uppercase; letter-spacing:.08em; color:var(--slate); font-family:'Inter',sans-serif; font-weight:600; margin-bottom:10px;}
+  .lc-amount{font-family:'IBM Plex Mono',monospace; font-size:22px; font-weight:500; color:var(--navy);}
+  .lc-status{
+    margin-top:18px; display:flex; align-items:center; gap:10px;
+    background:var(--blue-tint-2); border:1px solid var(--line); border-radius:10px; padding:12px 16px;
+    font-size:13.5px; color:var(--navy-soft); font-weight:500;
+  }
+  .lc-check{
+    width:20px; height:20px; border-radius:50%; background:var(--success); flex:0 0 auto;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .lc-check svg{width:12px; height:12px; stroke:#fff; stroke-width:3;}
+  .lc-amount.tick{animation:tickIn .8s ease both;}
+  @keyframes tickIn{from{opacity:0; transform:translateY(6px);} to{opacity:1; transform:translateY(0);}}
+
+  /* ---------- SECTION shells ---------- */
+  section{padding:88px 0;}
+  .section-tint{background:var(--blue-tint-2);}
+  .kicker{
+    font-family:'IBM Plex Mono',monospace; font-size:12.5px; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--blue-deep); margin-bottom:14px; display:block;
+  }
+  .section-head{max-width:640px; margin-bottom:48px;}
+  .section-head h2{font-size:32px; font-weight:600;}
+  .section-head p{color:var(--slate); margin-top:14px; font-size:15.5px;}
+
+  /* ---------- ABOUT ---------- */
+  .about-grid{display:grid; grid-template-columns:0.9fr 1.1fr; gap:56px; align-items:start;}
+  .about-grid p{color:var(--slate); font-size:16px; margin-bottom:16px;}
+  .stat-row{display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:28px;}
+  .stat{border-left:2px solid var(--blue); padding-left:14px;}
+  .stat .num{font-family:'IBM Plex Mono',monospace; font-size:24px; font-weight:500; color:var(--navy);}
+  .stat .label{font-size:12.5px; color:var(--slate); margin-top:2px;}
+
+  /* ---------- SKILLS ---------- */
+  .skills-cols{display:grid; grid-template-columns:repeat(3,1fr); gap:28px;}
+  .skill-block h3{font-size:15px; text-transform:uppercase; letter-spacing:.04em; margin-bottom:18px; color:var(--blue-deep); font-family:'Inter',sans-serif; font-weight:700;}
+  .skill-list{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:12px;}
+  .skill-list li{
+    display:flex; align-items:center; gap:12px; font-size:14.5px; color:var(--navy-soft);
+    background:#fff; border:1px solid var(--line); border-radius:10px; padding:12px 14px;
+  }
+  .skill-list li .ic{
+    width:30px; height:30px; border-radius:8px; background:var(--blue-tint);
+    display:flex; align-items:center; justify-content:center; flex:0 0 auto;
+  }
+  .skill-list li .ic svg{width:16px; height:16px; stroke:var(--blue-deep); fill:none; stroke-width:1.8;}
+
+  /* ---------- SERVICES ---------- */
+  .services-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:22px;}
+  .service-card{
+    background:#fff; border:1px solid var(--line); border-radius:var(--radius); padding:26px;
+    transition:box-shadow .2s ease, transform .2s ease;
+  }
+  .service-card:hover{box-shadow:0 20px 40px -24px rgba(16,36,62,0.25); transform:translateY(-3px);}
+  .service-card .ic{
+    width:42px; height:42px; border-radius:10px; background:var(--navy); margin-bottom:16px;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .service-card .ic svg{width:20px; height:20px; stroke:#fff; fill:none; stroke-width:1.8;}
+  .service-card h4{font-size:16.5px; font-weight:600; margin-bottom:8px;}
+  .service-card p{font-size:14px; color:var(--slate); margin:0;}
+
+  /* ---------- PORTFOLIO ---------- */
+  .proj-grid{display:grid; grid-template-columns:1fr 1fr; gap:22px;}
+  .proj-card{
+    background:#fff; border:1px solid var(--line); border-radius:var(--radius); overflow:hidden;
+  }
+  .proj-top{padding:24px 26px 0;}
+  .proj-index{font-family:'IBM Plex Mono',monospace; font-size:12px; color:var(--blue-deep); letter-spacing:.06em;}
+  .proj-card h3{font-size:19px; margin:8px 0 14px; font-weight:600;}
+  .proj-toggle{
+    width:100%; text-align:left; background:none; border:none; cursor:pointer;
+    padding:16px 26px; display:flex; justify-content:space-between; align-items:center;
+    border-top:1px solid var(--line); font-weight:600; font-size:14px; color:var(--navy); margin-top:16px;
+  }
+  .proj-toggle .plus{transition:transform .25s ease; font-size:18px; color:var(--blue);}
+  .proj-card.open .proj-toggle .plus{transform:rotate(45deg);}
+  .proj-body{
+    max-height:0; overflow:hidden; transition:max-height .35s ease;
+    padding:0 26px;
+  }
+  .proj-card.open .proj-body{max-height:520px; padding-bottom:24px;}
+  .proj-body h5{font-size:12px; text-transform:uppercase; letter-spacing:.06em; color:var(--blue-deep); margin:16px 0 8px;}
+  .proj-body ul{margin:0; padding-left:18px; color:var(--slate); font-size:14px;}
+  .proj-body ul li{margin-bottom:5px;}
+  .proj-body .tools{display:flex; flex-wrap:wrap; gap:8px; margin-top:6px;}
+  .tool-pill{
+    background:var(--blue-tint); color:var(--blue-deep); font-size:12.5px; font-weight:600;
+    padding:5px 11px; border-radius:999px;
+  }
+  .outcome-box{
+    margin-top:14px; background:var(--blue-tint-2); border-left:3px solid var(--success);
+    padding:10px 14px; border-radius:6px; font-size:13.5px; color:var(--navy-soft);
+  }
+
+  /* ---------- WHY HIRE ---------- */
+  .why-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:18px;}
+  .why-card{
+    background:#fff; border:1px solid var(--line); border-radius:var(--radius); padding:22px 20px;
+    text-align:left;
+  }
+  .why-card .ic{
+    width:36px; height:36px; border-radius:8px; background:var(--blue-tint); margin-bottom:14px;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .why-card .ic svg{width:18px; height:18px; stroke:var(--blue-deep); fill:none; stroke-width:2;}
+  .why-card h4{font-size:15px; font-weight:600; margin-bottom:6px;}
+  .why-card p{font-size:13.5px; color:var(--slate); margin:0;}
+
+  /* ---------- TESTIMONIALS ---------- */
+  .test-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:22px;}
+  .test-card{
+    background:#fff; border:1px solid var(--line); border-radius:var(--radius); padding:26px;
+    display:flex; flex-direction:column; gap:16px;
+  }
+  .test-card .quote-mark{font-family:'Fraunces',serif; font-size:40px; color:var(--blue); line-height:1; opacity:.5;}
+  .test-card p.quote{font-size:14.5px; color:var(--navy-soft); font-style:italic; margin:0;}
+  .test-person{display:flex; align-items:center; gap:12px; margin-top:auto;}
+  .avatar{
+    width:38px; height:38px; border-radius:50%; background:var(--navy); color:#fff;
+    display:flex; align-items:center; justify-content:center; font-family:'Fraunces',serif; font-weight:600; font-size:14px;
+  }
+  .test-person .name{font-size:13.5px; font-weight:600; color:var(--navy);}
+  .test-person .role{font-size:12px; color:var(--slate);}
+
+  /* ---------- CONTACT ---------- */
+  .contact-banner{
+    background:var(--navy); border-radius:20px; padding:64px 56px; position:relative; overflow:hidden;
+  }
+  .contact-banner::after{
+    content:""; position:absolute; inset:0;
+    background:repeating-linear-gradient(to bottom, transparent 0, transparent 39px, rgba(255,255,255,0.04) 40px);
+    pointer-events:none;
+  }
+  .contact-banner h2{color:#fff; font-size:30px; max-width:16ch;}
+  .contact-banner p{color:#c7d4e5; font-size:15.5px; max-width:48ch; margin-top:14px;}
+  .contact-links{display:flex; gap:14px; flex-wrap:wrap; margin-top:34px; position:relative; z-index:1;}
+  .contact-pill{
+    display:flex; align-items:center; gap:10px; background:rgba(255,255,255,0.08);
+    border:1px solid rgba(255,255,255,0.16); color:#fff; padding:13px 20px; border-radius:10px;
+    font-size:14px; font-weight:500; transition:background .2s ease;
+  }
+  .contact-pill:hover{background:rgba(255,255,255,0.16);}
+  .contact-pill svg{width:17px; height:17px; stroke:#fff; fill:none; stroke-width:1.8;}
+  .contact-cta{margin-top:34px; position:relative; z-index:1;}
+  .contact-cta .btn-primary{background:var(--blue); }
+  .contact-cta .btn-primary:hover{background:#3f7fca;}
+
+  footer.site{padding:36px 0; text-align:center; color:var(--slate); font-size:13px;}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:920px){
+    .hero .wrap{grid-template-columns:1fr;}
+    .hero h1{font-size:36px; max-width:none;}
+    .about-grid, .skills-cols, .why-grid, .test-grid, .proj-grid, .services-grid{grid-template-columns:1fr 1fr;}
+    .about-grid{grid-template-columns:1fr;}
+  }
+  @media (max-width:680px){
+    .navlinks{position:fixed; top:72px; left:0; right:0; background:#fff; flex-direction:column;
+      padding:20px 24px; border-bottom:1px solid var(--line); gap:16px; transform:translateY(-130%);
+      transition:transform .25s ease;}
+    .navlinks.open{transform:translateY(0);}
+    .burger{display:block;}
+    .skills-cols, .why-grid, .test-grid, .proj-grid, .services-grid, .stat-row{grid-template-columns:1fr;}
+    .contact-banner{padding:40px 24px;}
+    section{padding:64px 0;}
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <nav class="wrap">
+    <a href="#top" class="brand">Jessie Mae <span>Garnoza</span></a>
+    <div class="navlinks" id="navlinks">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#services">Services</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#why">Why Me</a>
+      <a href="#testimonials">Testimonials</a>
+      <a href="#contact" class="nav-cta">Let's Talk</a>
+    </div>
+    <button class="burger" id="burger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <span class="eyebrow">Available for freelance & remote work</span>
+        <h1>Books balanced. Deadlines met. <em>Nothing missed.</em></h1>
+        <p class="lead">I'm Jessie Mae — a bookkeeping and administrative support specialist who keeps your records accurate, your reports on time, and your day-to-day admin off your plate.</p>
+        <div class="cta-row">
+          <a href="#contact" class="btn-primary">Let's Work Together
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#portfolio" class="btn-secondary">See sample work</a>
+        </div>
+      </div>
+      <div class="ledger-card" id="ledgerCard">
+        <div class="lc-head">
+          <strong style="font-family:'Fraunces',serif; font-size:16px;">Monthly Reconciliation</strong>
+          <span class="mono">as of this month</span>
+        </div>
+        <div class="lc-cols">
+          <div class="lc-col">
+            <h4>Debit</h4>
+            <div class="lc-amount mono" id="lcDebit">₱0.00</div>
+          </div>
+          <div class="lc-col">
+            <h4>Credit</h4>
+            <div class="lc-amount mono" id="lcCredit">₱0.00</div>
+          </div>
+        </div>
+        <div class="lc-status">
+          <span class="lc-check"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></span>
+          <span id="lcStatusText">Reconciling…</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="wrap about-grid">
+      <div>
+        <span class="kicker">About</span>
+        <h2>Someone you can hand your books to and stop worrying.</h2>
+      </div>
+      <div>
+        <p>I'm a detail-oriented and reliable professional with hands-on experience in QuickBooks, Microsoft Excel, and Microsoft Word. I enjoy the work most people find tedious — organizing financial records, keeping data accurate, and handling the administrative details that let a business run smoothly.</p>
+        <p>I take deadlines seriously, double-check my own work before it reaches you, and I'm always learning to do the job better. If you need someone dependable to own the numbers and the paperwork, that's exactly where I fit.</p>
+        <div class="stat-row">
+          <div class="stat"><div class="num">15+</div><div class="label">Core tools &amp; skills</div></div>
+          <div class="stat"><div class="num">100%</div><div class="label">Deadline commitment</div></div>
+          <div class="stat"><div class="num">1:1</div><div class="label">Direct, clear communication</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="section-tint">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="kicker">Skills</span>
+        <h2>What I bring to your books and your inbox</h2>
+      </div>
+      <div class="skills-cols">
+        <div class="skill-block">
+          <h3>Software</h3>
+          <ul class="skill-list">
+            <li><span class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 4v5"/></svg></span>QuickBooks</li>
+            <li><span class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 9v12"/></svg></span>Microsoft Excel</li>
+            <li><span class="ic"><svg viewBox="0 0 24 24"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M9 13h6M9 17h6"/></svg></span>Microsoft Word</li>
+          </ul>
+        </div>
+        <div class="skill-block">
+          <h3>Core Tasks</h3>
+          <ul class="skill-list">
+            <li><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 12h18M3 6h18M3 18h18"/></svg></span>Data Entry</li>
+            <li><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>Bookkeeping Support</li>
+            <li><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4zM8 8h8M8 12h8M8 16h5"/></svg></span>Invoice Creation</li>
+            <li><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 3v18h18M7 15l4-4 3 3 5-6"/></svg></span>Expense Tracking</li>
+            <li><span class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 8h10M7 12h10M7 16h6"/></svg></span>Financial Record Management</li>
+            <li><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 3h18v18H3zM3 9h18M9 9v12"/></svg></span>Spreadsheet Management</li>
+            <li><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M4 19.5V6.5A2.5 2.5 0 0 1 6.5 4H20v15"/></svg></span>Document Formatting</li>
+          </ul>
+        </div>
+        <div class="skill-block">
+          <h3>Support &amp; Habits</h3>
+          <ul class="skill-list">
+            <li><span class="ic"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/></svg></span>Administrative Support</li>
+            <li><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 7l9 6 9-6M4 4h16v16H4z"/></svg></span>File Organization</li>
+            <li><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4zM4 8l8 5 8-5"/></svg></span>Email Management</li>
+            <li><span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></span>Time Management</li>
+            <li><span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="0.5"/></svg></span>Attention to Detail</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="kicker">Services</span>
+        <h2>How I can support your business</h2>
+        <p>Pick a single task or hand over the whole back office — either way, it gets done accurately and on time.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="ic"><svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+          <h4>Bookkeeping Support</h4>
+          <p>Day-to-day recording and organizing of your financial transactions, kept clean and audit-ready.</p>
+        </div>
+        <div class="service-card">
+          <div class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 4v5"/></svg></div>
+          <h4>QuickBooks Data Entry</h4>
+          <p>Accurate entry of income, expenses, and account activity directly into QuickBooks.</p>
+        </div>
+        <div class="service-card">
+          <div class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 8h10M7 12h10M7 16h6"/></svg></div>
+          <h4>Bank Transaction Recording</h4>
+          <p>Matching and logging bank activity so your books reflect what actually happened.</p>
+        </div>
+        <div class="service-card">
+          <div class="ic"><svg viewBox="0 0 24 24"><path d="M4 4h16v16H4zM8 8h8M8 12h8M8 16h5"/></svg></div>
+          <h4>Invoice &amp; Receipt Management</h4>
+          <p>Creating, tracking, and filing invoices and receipts so nothing gets lost or paid twice.</p>
+        </div>
+        <div class="service-card">
+          <div class="ic"><svg viewBox="0 0 24 24"><path d="M3 3v18h18M7 15l4-4 3 3 5-6"/></svg></div>
+          <h4>Excel Reports &amp; Dashboards</h4>
+          <p>Turning raw numbers into clear reports and dashboards you can actually act on.</p>
+        </div>
+        <div class="service-card">
+          <div class="ic"><svg viewBox="0 0 24 24"><path d="M3 3h18v18H3zM3 9h18M9 9v12"/></svg></div>
+          <h4>Spreadsheet Creation &amp; Maintenance</h4>
+          <p>Building trackers and templates that stay useful long after I hand them over.</p>
+        </div>
+        <div class="service-card">
+          <div class="ic"><svg viewBox="0 0 24 24"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M9 13h6M9 17h6"/></svg></div>
+          <h4>Document Formatting</h4>
+          <p>Polished contracts, letters, and reports in Microsoft Word, formatted for client-ready use.</p>
+        </div>
+        <div class="service-card">
+          <div class="ic"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2M12 11a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"/></svg></div>
+          <h4>Administrative Assistance</h4>
+          <p>Inbox, calendar, and file support so the small things stop eating your time.</p>
+        </div>
+        <div class="service-card">
+          <div class="ic"><svg viewBox="0 0 24 24"><path d="M3 12h18M3 6h18M3 18h18"/></svg></div>
+          <h4>Data Entry &amp; Record Keeping</h4>
+          <p>Fast, accurate entry with a second look built in — because small errors compound.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO -->
+  <section id="portfolio" class="section-tint">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="kicker">Portfolio</span>
+        <h2>Sample projects</h2>
+        <p>Representative examples of the kind of work I take on. Tap a project to see the full breakdown.</p>
+      </div>
+      <div class="proj-grid">
+
+        <div class="proj-card">
+          <div class="proj-top">
+            <span class="proj-index mono">01</span>
+            <h3>Small Business Bookkeeping</h3>
+          </div>
+          <button class="proj-toggle" aria-expanded="false">View details <span class="plus">+</span></button>
+          <div class="proj-body">
+            <h5>Objective</h5>
+            <p style="font-size:14px;color:var(--slate);margin:0;">Keep a small business's financial records accurate and current so the owner always knows where the money stands.</p>
+            <h5>Responsibilities</h5>
+            <ul>
+              <li>Recorded daily income and expense transactions</li>
+              <li>Organized and filed financial records for easy retrieval</li>
+              <li>Generated monthly financial reports in QuickBooks</li>
+            </ul>
+            <h5>Tools Used</h5>
+            <div class="tools"><span class="tool-pill">QuickBooks</span><span class="tool-pill">Excel</span></div>
+            <div class="outcome-box">Outcome: The owner had up-to-date, reliable records available at any time, without spending hours on data entry.</div>
+          </div>
+        </div>
+
+        <div class="proj-card">
+          <div class="proj-top">
+            <span class="proj-index mono">02</span>
+            <h3>Excel Sales Report</h3>
+          </div>
+          <button class="proj-toggle" aria-expanded="false">View details <span class="plus">+</span></button>
+          <div class="proj-body">
+            <h5>Objective</h5>
+            <p style="font-size:14px;color:var(--slate);margin:0;">Give a sales team a clear, recurring view of performance without manual recalculating each month.</p>
+            <h5>Responsibilities</h5>
+            <ul>
+              <li>Built a sales tracking spreadsheet from raw transaction data</li>
+              <li>Applied formulas and charts to automate calculations</li>
+              <li>Produced monthly performance reports for review</li>
+            </ul>
+            <h5>Tools Used</h5>
+            <div class="tools"><span class="tool-pill">Microsoft Excel</span><span class="tool-pill">Pivot Tables</span><span class="tool-pill">Charts</span></div>
+            <div class="outcome-box">Outcome: Reporting time dropped from hours to minutes, with trends visible at a glance.</div>
+          </div>
+        </div>
+
+        <div class="proj-card">
+          <div class="proj-top">
+            <span class="proj-index mono">03</span>
+            <h3>Business Document Preparation</h3>
+          </div>
+          <button class="proj-toggle" aria-expanded="false">View details <span class="plus">+</span></button>
+          <div class="proj-body">
+            <h5>Objective</h5>
+            <p style="font-size:14px;color:var(--slate);margin:0;">Produce polished, client-ready documents that reflect well on the business.</p>
+            <h5>Responsibilities</h5>
+            <ul>
+              <li>Designed professional layouts for contracts, letters, and reports</li>
+              <li>Formatted documents for consistency and readability in Microsoft Word</li>
+              <li>Proofread final drafts before delivery</li>
+            </ul>
+            <h5>Tools Used</h5>
+            <div class="tools"><span class="tool-pill">Microsoft Word</span><span class="tool-pill">Templates</span></div>
+            <div class="outcome-box">Outcome: A consistent, professional document style the business could reuse going forward.</div>
+          </div>
+        </div>
+
+        <div class="proj-card">
+          <div class="proj-top">
+            <span class="proj-index mono">04</span>
+            <h3>Administrative Support</h3>
+          </div>
+          <button class="proj-toggle" aria-expanded="false">View details <span class="plus">+</span></button>
+          <div class="proj-body">
+            <h5>Objective</h5>
+            <p style="font-size:14px;color:var(--slate);margin:0;">Take routine administrative work off a business owner's plate so they could focus on growth.</p>
+            <h5>Responsibilities</h5>
+            <ul>
+              <li>Managed digital files and business records</li>
+              <li>Organized folders and documents for quick access</li>
+              <li>Maintained accurate, up-to-date data entry</li>
+            </ul>
+            <h5>Tools Used</h5>
+            <div class="tools"><span class="tool-pill">Google Drive</span><span class="tool-pill">Excel</span><span class="tool-pill">Word</span></div>
+            <div class="outcome-box">Outcome: A tidy, well-organized filing system that saved the owner time on every search.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY HIRE ME -->
+  <section id="why">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="kicker">Why Hire Me</span>
+        <h2>What you can count on</h2>
+      </div>
+      <div class="why-grid">
+        <div class="why-card"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="0.5"/></svg></div><h4>Detail-oriented</h4><p>I catch the small errors before they become bigger problems.</p></div>
+        <div class="why-card"><div class="ic"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div><h4>Reliable</h4><p>If I say it will be done, it will be done.</p></div>
+        <div class="why-card"><div class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 8h10M7 12h10M7 16h6"/></svg></div><h4>Organized</h4><p>Records and files that make sense to anyone who opens them.</p></div>
+        <div class="why-card"><div class="ic"><svg viewBox="0 0 24 24"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/></svg></div><h4>Fast learner</h4><p>New tools and workflows don't slow me down for long.</p></div>
+        <div class="why-card"><div class="ic"><svg viewBox="0 0 24 24"><path d="M3 3v18h18M7 15l4-4 3 3 5-6"/></svg></div><h4>Excellent with numbers</h4><p>Comfortable with financial data, formulas, and reconciliation.</p></div>
+        <div class="why-card"><div class="ic"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><h4>Strong communication</h4><p>Clear updates, so you're never left guessing on status.</p></div>
+        <div class="why-card"><div class="ic"><svg viewBox="0 0 24 24"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div><h4>Accuracy &amp; confidentiality</h4><p>Your financial data is handled carefully and kept private.</p></div>
+        <div class="why-card"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div><h4>Deadline-driven</h4><p>Work delivered when you need it, not "eventually."</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="testimonials" class="section-tint">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="kicker">Testimonials</span>
+        <h2>What clients say</h2>
+      </div>
+      <div class="test-grid">
+        <div class="test-card">
+          <span class="quote-mark">"</span>
+          <p class="quote">Jessie Mae took over our monthly bookkeeping and it was like a weight lifted. Our QuickBooks records finally match our bank statements every single month.</p>
+          <div class="test-person">
+            <div class="avatar">RM</div>
+            <div><div class="name">Ramon M.</div><div class="role">Owner, retail supply shop</div></div>
+          </div>
+        </div>
+        <div class="test-card">
+          <span class="quote-mark">"</span>
+          <p class="quote">The Excel sales dashboard she built cut our reporting time down massively. It's clean, easy for the whole team to read, and updates without any hassle.</p>
+          <div class="test-person">
+            <div class="avatar">AT</div>
+            <div><div class="name">Anna T.</div><div class="role">Sales Manager, e-commerce business</div></div>
+          </div>
+        </div>
+        <div class="test-card">
+          <span class="quote-mark">"</span>
+          <p class="quote">Very organized and easy to communicate with. She handled our documents and admin tasks with a level of care that made me trust her with more each week.</p>
+          <div class="test-person">
+            <div class="avatar">DC</div>
+            <div><div class="name">Daniel C.</div><div class="role">Founder, consulting firm</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="wrap">
+      <div class="contact-banner">
+        <h2>Let's get your books and your admin in order.</h2>
+        <p>I'm currently available for freelance and remote engagements. Reach out and let's talk about what your business needs.</p>
+        <div class="contact-links">
+          <a class="contact-pill" href="mailto:jessiemae.garnoza@email.com"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>jessiemae.garnoza@email.com</a>
+          <a class="contact-pill" href="https://www.linkedin.com/in/jessiemaegarnoza" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M7 10v7M7 7v.01M11 17v-4a2 2 0 0 1 4 0v4M11 13v4"/></svg>LinkedIn</a>
+          <a class="contact-pill" href="https://facebook.com/jessiemaegarnoza" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>Facebook</a>
+          <a class="contact-pill" href="https://wa.me/639000000000" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>WhatsApp</a>
+        </div>
+        <div class="contact-cta">
+          <a href="mailto:jessiemae.garnoza@email.com" class="btn-primary">Let's Work Together
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">© <span id="year"></span> Jessie Mae G. Garnoza — Bookkeeping &amp; Administrative Support Specialist</div>
+</footer>
+
+<script>
+  // mobile nav toggle
+  const burger = document.getElementById('burger');
+  const navlinks = document.getElementById('navlinks');
+  burger.addEventListener('click', () => navlinks.classList.toggle('open'));
+  navlinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navlinks.classList.remove('open')));
+
+  // footer year
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // portfolio accordion
+  document.querySelectorAll('.proj-toggle').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const card = btn.closest('.proj-card');
+      const isOpen = card.classList.contains('open');
+      document.querySelectorAll('.proj-card.open').forEach(c => { if(c!==card){c.classList.remove('open'); c.querySelector('.proj-toggle').setAttribute('aria-expanded','false');} });
+      card.classList.toggle('open', !isOpen);
+      btn.setAttribute('aria-expanded', String(!isOpen));
+    });
+  });
+
+  // ledger balance animation — signature hero moment, runs once when in view
+  const debitEl = document.getElementById('lcDebit');
+  const creditEl = document.getElementById('lcCredit');
+  const statusEl = document.getElementById('lcStatusText');
+  const ledgerCard = document.getElementById('ledgerCard');
+  let played = false;
+
+  function animateCount(el, target, duration){
+    const start = performance.now();
+    function step(now){
+      const p = Math.min((now-start)/duration, 1);
+      const eased = 1 - Math.pow(1-p, 3);
+      const val = Math.floor(eased * target);
+      el.textContent = '₱' + val.toLocaleString('en-US', {minimumFractionDigits:2, maximumFractionDigits:2});
+      if(p < 1) requestAnimationFrame(step);
+      else el.classList.add('tick');
+    }
+    requestAnimationFrame(step);
+  }
+
+  function playLedger(){
+    if(played) return;
+    played = true;
+    const amount = 48250;
+    animateCount(debitEl, amount, 1100);
+    animateCount(creditEl, amount, 1100);
+    setTimeout(() => { statusEl.textContent = 'Books balanced ✓'; }, 1200);
+  }
+
+  if('IntersectionObserver' in window){
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if(e.isIntersecting) playLedger(); });
+    }, {threshold:0.4});
+    io.observe(ledgerCard);
+  } else {
+    playLedger();
+  }
+</script>
+
+</body>
+</html>

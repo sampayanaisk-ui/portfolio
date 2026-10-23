@@ -593,6 +593,34 @@ textarea:focus-visible {
 @media(prefers-reduced-motion:reduce) {
   html { scroll-behavior: auto; }
 }
+  
+.hero-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  min-width: 0;
+}
+
+.profile-photo {
+  display: block;
+  width: 100%;
+  max-width: 380px;
+  height: auto;
+  max-height: 430px;
+  object-fit: contain;
+}
+
+.hero-right .ledger {
+  width: 100%;
+}
+
+@media (max-width: 760px) {
+  .profile-photo {
+    max-width: 300px;
+  }
+}
+
 </style>
 </head>
 
@@ -648,6 +676,13 @@ textarea:focus-visible {
       Open to freelance projects & remote roles
     </div>
   </div>
+
+<div class="hero-right">
+  <img
+    src="Professional%20Teal%20Blazer%20Headshot%20cme.png"
+    alt="Jessie Mae Garnoza"
+    class="profile-photo"
+  >
 
   <aside class="ledger">
     <div class="eyebrow">
